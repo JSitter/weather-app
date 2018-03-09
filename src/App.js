@@ -10,11 +10,11 @@ class App extends Component {
     response: 'easy'
   };
 
-  componentDidMount() {
-    this.callApi()
-      .then(res => this.setState({"response": res}))
-      .catch(err => console.log(err));
-  }
+  // componentDidMount() {
+  //   this.callApi()
+  //     .then(res => this.setState({"response": res}))
+  //     .catch(err => console.log(err));
+  // }
 
   // callApi = ()=>{
 
@@ -23,7 +23,7 @@ class App extends Component {
   //   })
   // }
   callApi = async () => {
-    const response = await fetch('/api/spark');
+    const response = await fetch('/api/radar/'+process.env.REACT_APP_API_KEY);
     const body = await response.text();
 
     if (response.status !== 200) throw Error(body.message);
@@ -36,7 +36,7 @@ class App extends Component {
       <div className="App">
         <Header title="Welcom to Bloop" />
         <Weather apikey={process.env.REACT_APP_WEATHER_KEY}/> 
-        <p>hello{this.state.response}</p>
+        <p>{this.state.response}</p>
       </div>
     );
   }

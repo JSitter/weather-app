@@ -6,7 +6,8 @@ class Weather extends Component{
         super(props)
         this.apikey = this.props.apikey
         this.state = {
-            weather: null
+            weather: null,
+            radar_url: '/imgs/cloud.png'
         }
     }
 
@@ -34,15 +35,17 @@ class Weather extends Component{
     fetchWeather(city){
 
         if (typeof this.state.lat == "undefined" || typeof this.state.lon == "undefined"){
-            console.log('need coords')
+            console.log('getting coordinates...')
             this.handleLocation().then((location)=>{
                 this.setState({lat:location.coords.latitude, lon:location.coords.longitude})
             }).then(()=>{
-                let proxy_url = "https://cors-anywhere.herokuapp.com/"
-                const radar_img_path = "https://api.wunderground.com/api/"+process.env.REACT_APP_API_KEY+"/animatedsatellite/image.gif?lat="+this.state.lat+"&lon="+this.state.lon+"&radius=90&key=sat_ir4&basemap=0"
-                fetch(radar_img_path).then((data)=>{
-                    console.log(data)
-                })
+
+                const radar_img_path = "/api/radar/"+process.env.REACT_APP_API_KEY + "/"+ this.state.lat + "/" + this.state.lon
+                // fetch(radar_img_path).then((response)=> response.json())
+                // .then((json)=>{
+                //     console.log(json)
+                // })
+                this.setState({"radar_url":radar_img_path})
             })
         }
         
@@ -65,7 +68,7 @@ class Weather extends Component{
                 <a className="App-intro btn" onClick={()=>this.fetchWeather('SanFrancisco')}>
                     Try Alpo!
                 </a>
-                <Radar />
+                <img src={this.state.radar_url}/>
             </div>
             
         )
