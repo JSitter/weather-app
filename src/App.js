@@ -9,7 +9,8 @@ class App extends Component {
     return (
       <div className="App">
         <Header title="Welcom to Bloop" />
-        <Weather api-key={process.env.API_KEY}/> 
+        <Weather apikey={process.env.REACT_APP_WEATHER_KEY}/> 
+
       </div>
     );
   }
