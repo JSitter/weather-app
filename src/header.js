@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
+import Locate from './components/locate'
 import logo from './cloud.png';
 
 class Header extends Component{
 
     render(){
         return(
-            <header className="App-header">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h1 className="App-title">Welcome to Bloop</h1>
+            <header className="header">
+                
+                <h1 className="App-title">Bloop</h1>
+                <Locate handleLocationChange={this.props.handleLocationChange}/>
+                <div className="find">
+                    
+                    
+                </div>
             </header>
         )
     }

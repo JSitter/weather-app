@@ -5,10 +5,15 @@ import './App.css';
 
 
 class App extends Component {
-
-  state = {
-    response: 'easy'
+  constructor(props){
+    super(props)
+    this.state =  {
+      response: 'easy'
+    };
+    this.handleLocationChange.bind(this)
   };
+
+  
 
   // componentDidMount() {
   //   this.callApi()
@@ -30,11 +35,13 @@ class App extends Component {
 
     return body;
   };
-
+  handleLocationChange = (location)=>{
+      console.log(location)
+  }
   render() {
     return (
       <div className="App">
-        <Header title="Welcom to Bloop" />
+        <Header handleLocationChange={this.handleLocationChange} />
         <Weather apikey={process.env.REACT_APP_WEATHER_KEY}/> 
         <p>{this.state.response}</p>
       </div>
