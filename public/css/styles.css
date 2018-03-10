@@ -38,7 +38,7 @@ header{
     box-shadow: var(--shadow);
     justify-content: center;
     align-items: center;
-    height: 110vh;
+    height: 105vh;
 
 
 }
@@ -84,4 +84,8 @@ img.radar{
 header>h1{
     color: white;
 
+}
+
+a.searching>i{
+    color: red!important;
 }
