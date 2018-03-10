@@ -6,12 +6,21 @@ class Locate extends Component{
         super(props)
 
         this.state = {
-            location:""
+            location:"",
+            lat: "",
+            lon: "",
+            city: "",
+        }
+        this.handleKeyDown.bind(this)
+        document.addEventListener("keydown", this.handleKeyDown)
+    }
+    handleKeyDown = (e) =>{
+        if( e.keyCode == 13 ){
+            this.props.getWeather(this.state.lat, this.state.lon, this.state.city)
         }
     }
     render(){
         let handleGetLocation=()=>{
-            console.log("clicked")
             if("geolocation" in navigator){
                 this.setState({location: "searching"});
                 fetchLocation();
@@ -23,28 +32,44 @@ class Locate extends Component{
     
         let fetchLocation=()=>{
             navigator.geolocation.getCurrentPosition((position)=>{
-                fetch("https://maps.googleapis.com/maps/api/geocode/json?address=")
+                this.setState({ "lat": position.coords.latitude,
+                                "lon":position.coords.longitude
+                })
+                let googleApiUrl = "/api/locate/city/"+process.env.REACT_APP_API_KEY+"/"+position.coords.latitude + "/"+position.coords.longitude
+                fetch(googleApiUrl)
                 .then((response)=>response.json())
                 .then((json)=>{
-                    console.log(json)
+                    this.setState({"city":json.results[3].address_components[0].long_name})
                 })
                 this.props.handleLocationChange(position)
+                
                 this.setState({"location": ""})
+                
                
             })
         }
 
         return (
-            <div className="input-wrap">
-                       <a className={this.state.location} onClick={handleGetLocation}> 
-                           <i className="material-icons">my_location</i>
-                       
-                       </a>
-                        <div className="input-field">
-                            <input id="city"  type="text" className="validate">
-                            </input>
-                            <label htmlFor="city">Weather by City</label>
-                        </div>
+            <div className="wrapper">
+                <div className="input-wrap">
+                        <a className={this.state.location} onClick={handleGetLocation}> 
+                            <i className="material-icons">my_location</i>
+                        
+                        </a>
+                            <div className="input-field">
+                                <input id="city"  type="text" className="" placeholder={this.state.city}>
+                                </input>
+                                <label htmlFor="city">City</label>
+                                
+                            </div>
+                            
+                </div>
+                <a className="btn-find" >
+                    <div onClick={()=>this.props.getWeather(this.state.lat, this.state.lon, this.state.city)} >
+                            Get the Weather
+                    </div>
+                </a>
+                
             </div>
         )
     }

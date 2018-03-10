@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './header'
+import Header from './components/header'
 import Weather from './components/weather'
 import './App.css';
 
@@ -38,12 +38,17 @@ class App extends Component {
   handleLocationChange = (location)=>{
       console.log(location)
   }
+  getWeather = (lat, lon, city) =>{
+    console.log(city)
+  }
   render() {
     return (
       <div className="App">
-        <Header handleLocationChange={this.handleLocationChange} />
+        <Header 
+          handleLocationChange={this.handleLocationChange} 
+          getWeather={this.getWeather}
+        />
         <Weather apikey={process.env.REACT_APP_WEATHER_KEY}/> 
-        <p>{this.state.response}</p>
       </div>
     );
   }
