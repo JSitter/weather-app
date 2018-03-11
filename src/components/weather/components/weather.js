@@ -67,14 +67,8 @@ class Weather extends Component{
     render(){
         return(
             <div>
-
-                <a className="App-intro waves-effect waves-light btn" onClick={()=>this.fetchWeather('SanFrancisco')}>
-                    Try Alpo!
-                </a>
                 <img className="radar" src={this.state.radar_url}/>
-                <a className="waves-effect waves-light btn">
-                    get something
-                </a>
+                
             </div>
             
         )

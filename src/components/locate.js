@@ -53,7 +53,8 @@ class Locate extends Component{
             <div className="wrapper">
                 <div className="input-wrap">
                         <a className={this.state.location} onClick={handleGetLocation}> 
-                            <i className="material-icons">my_location</i>
+                            <i className="material-icons">near_me
+                            </i>
                         
                         </a>
                             <div className="input-field">

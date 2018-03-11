@@ -10,8 +10,8 @@ class Header extends Component{
                 
                 <h1 className="App-title">Bloop</h1>
                 <Locate 
-                handleLocationChange={this.props.handleLocationChange}
-                getWeather={this.props.getWeather}
+                    handleLocationChange={this.props.handleLocationChange}
+                    getWeather={this.props.getWeather}
                 />
                 <div className="find">
                     
