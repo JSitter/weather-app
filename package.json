@@ -15,5 +15,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "http://blooop-backend.herokuapp.com/"
+  "proxy": "http://blooop-backend.herokuapp.com"
 }
