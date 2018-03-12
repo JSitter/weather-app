@@ -38,13 +38,12 @@ class App extends Component {
   handleLocationChange = (location)=>{
       console.log(location)
   }
-  getWeather = (lat, lon, city) =>{
-    console.log(lat)
-    console.log(city)
-    console.log("passed in")
+  getWeather = (state, city) =>{
+
+
     // let address = "/api/get/current/"+ process.env.REACT_APP_API_KEY 
-    let address = "/api/get/current/" + lat + "/" + lon
-    fetch(address).then((response)=>response.text()).then((text)=>console.log(text))
+    let address = "/api/get/current/" + process.env.REACT_APP_API_KEY +"/"+ state + "/" + city
+    fetch(address).then((response)=>response.json()).then((json)=>console.log(json))
   }
   render() {
     return (

@@ -39,7 +39,8 @@ class Locate extends Component{
                 fetch(googleApiUrl)
                 .then((response)=>response.json())
                 .then((json)=>{
-                    this.setState({"city":json.results[3].address_components[0].long_name})
+                    this.setState({"city":json.results[3].address_components[0].long_name,
+                                    "state": json.results[3].address_components[2].short_name})
                 })
                 this.props.handleLocationChange(position)
                 
@@ -50,7 +51,8 @@ class Locate extends Component{
         }
 
         let handleGetWeather = ()=>{
-            this.props.getWeather(this.state.lat, this.state.lon, this.state.city)
+            console.log(this.state.state)
+            this.props.getWeather( this.state.state, this.state.city)
         }
         return (
             <div className="wrapper">
