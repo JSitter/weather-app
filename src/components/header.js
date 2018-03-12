@@ -8,7 +8,7 @@ class Header extends Component{
         return(
             <header className="header">
                 <div className={this.props.visibility}>
-                    <h1 className="App-title">Bloop</h1>
+                    <h1 className="App-title">Blooop</h1>
                     <Locate 
                         handleLocationChange={this.props.handleLocationChange}
                         getWeather={this.props.getWeather}
