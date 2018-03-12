@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import GeoLocation from './geolocation'
 import Radar from './radar'
+import Today from './today'
 
 class Weather extends Component{
     constructor(props){
@@ -11,10 +12,23 @@ class Weather extends Component{
         }
     }
 
+    
     render(){
+
         return(
-            <section className="weather-wrapper">
-                <i class="wu wu-white wu-128 wu-chanceflurries"></i>
+            <section className={this.props.weather_tag}>
+                {console.log(this.props.icon)}
+
+
+                <Today 
+                    icon={this.props.icon}
+                    temp={this.props.temp}
+                    desc={this.props.desc}
+                />
+
+
+
+                
             </section>            
         )
     }

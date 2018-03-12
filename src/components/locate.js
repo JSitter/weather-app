@@ -10,6 +10,7 @@ class Locate extends Component{
             lat: "",
             lon: "",
             city: "",
+            weather_recieved: "hidden",
         }
         this.handleKeyDown.bind(this)
         document.addEventListener("keydown", this.handleKeyDown)

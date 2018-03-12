@@ -7,15 +7,15 @@ class Header extends Component{
     render(){
         return(
             <header className="header">
-                
-                <h1 className="App-title">Bloop</h1>
-                <Locate 
-                    handleLocationChange={this.props.handleLocationChange}
-                    getWeather={this.props.getWeather}
-                />
-                <div className="find">
+                <div className={this.props.visibility}>
+                    <h1 className="App-title">Bloop</h1>
+                    <Locate 
+                        handleLocationChange={this.props.handleLocationChange}
+                        getWeather={this.props.getWeather}
+                    />
                     
-                    
+                        
+                        
                 </div>
             </header>
         )

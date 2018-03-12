@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state =  {
-      response: 'easy'
+      response: 'easy',
+      weather_tag: 'hidden',
     };
     this.handleLocationChange.bind(this)
   };
@@ -43,18 +44,45 @@ class App extends Component {
 
     // let address = "/api/get/current/"+ process.env.REACT_APP_API_KEY 
     let address = "/api/get/current/" + process.env.REACT_APP_API_KEY +"/"+ state + "/" + city
-    fetch(address).then((response)=>response.json()).then((json)=>console.log(json))
+    fetch(address).then((response)=>response.json()).then((json)=>{
+      let icon = json.current_observation.icon
+      let weather = json.current_observation.weather
+      let temp = json.current_observation.temp_f
+
+      this.setState({
+        "weather_tag":"weather-box visible",
+        "main_location":"weather-box hidden",
+        "icon":icon,
+        "desc":weather,
+        "temp":temp
+
+      })
+    })
   }
+
   render() {
+    let getWeatherComponent = ()=>{
+      if(this.state.weather_tag == "weather-box visible"){
+        return (
+          <Weather 
+            weather_tag={this.state.weather_tag}
+            icon={this.state.icon}
+            temp={this.state.temp}
+            desc={this.state.desc}
+
+          /> 
+        )
+      }
+      else return
+    }
     return (
       <div className="App">
         <Header 
+          visibility={this.state.main_location}
           handleLocationChange={this.handleLocationChange} 
           getWeather={this.getWeather}
         />
-        <Weather 
-        
-        /> 
+        {getWeatherComponent()}
       </div>
     );
   }

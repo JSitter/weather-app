@@ -10,7 +10,7 @@
     src: url('../fonts/LobsterTwo-BoldItalic.otf');
 }
 
-header>h1 {
+header h1 {
     font-family: lobster;
 }
 
@@ -35,7 +35,9 @@ body{
     background-color: var(--primary);
     width: 100vw;
 }
-
+section{
+    color: var(--lightwh);
+}
 header{
     background-repeat: no-repeat;
     background-position: center; 
@@ -97,7 +99,7 @@ input{
     grid-gap: 20px;
 }
 
-header>h1{
+header h1{
     color: white;
 
 }
@@ -128,4 +130,36 @@ a.btn-find{
     cursor: default;
 
 
+}
+.weather-box{
+    position: absolute;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hidden{
+    transition: opacity 500ms;
+    opacity:0;
+}
+
+.visible{
+    transition: opacity 500ms;
+    opacity:1;
+}
+.today{
+    width: 256px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, .5);
+    border-radius: 30px;
+}
+
+i{
+    background-repeat: no-repeat;
 }
