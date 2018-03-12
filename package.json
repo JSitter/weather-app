@@ -6,7 +6,8 @@
     "dotenv": "^5.0.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-scripts": "1.1.1"
+    "react-scripts": "1.1.1",
+    "weather-underground-icons": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -14,5 +15,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy":"http://127.0.0.1:3128"
+  "proxy": "http://127.0.0.1:3128"
 }

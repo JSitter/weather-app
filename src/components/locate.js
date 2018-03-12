@@ -49,6 +49,9 @@ class Locate extends Component{
             })
         }
 
+        let handleGetWeather = ()=>{
+            this.props.getWeather(this.state.lat, this.state.lon, this.state.city)
+        }
         return (
             <div className="wrapper">
                 <div className="input-wrap">
@@ -66,7 +69,7 @@ class Locate extends Component{
                             
                 </div>
                 <a className="btn-find" >
-                    <div onClick={()=>this.props.getWeather(this.state.lat, this.state.lon, this.state.city)} >
+                    <div onClick={handleGetWeather} >
                             Get the Weather
                     </div>
                 </a>

@@ -39,7 +39,12 @@ class App extends Component {
       console.log(location)
   }
   getWeather = (lat, lon, city) =>{
+    console.log(lat)
     console.log(city)
+    console.log("passed in")
+    // let address = "/api/get/current/"+ process.env.REACT_APP_API_KEY 
+    let address = "/api/get/current/" + lat + "/" + lon
+    fetch(address).then((response)=>response.text()).then((text)=>console.log(text))
   }
   render() {
     return (
@@ -48,7 +53,9 @@ class App extends Component {
           handleLocationChange={this.handleLocationChange} 
           getWeather={this.getWeather}
         />
-        <Weather apikey={process.env.REACT_APP_WEATHER_KEY}/> 
+        <Weather 
+        
+        /> 
       </div>
     );
   }
