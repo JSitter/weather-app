@@ -32,17 +32,20 @@ class Locate extends Component{
         }
     
         let fetchLocation=()=>{
+
             navigator.geolocation.getCurrentPosition((position)=>{
                 this.setState({ "lat": position.coords.latitude,
                                 "lon":position.coords.longitude
                 })
                 let googleApiUrl = "/api/locate/city/"+process.env.REACT_APP_API_KEY+"/"+position.coords.latitude + "/"+position.coords.longitude
+
                 fetch(googleApiUrl)
                 .then((response)=>response.json())
                 .then((json)=>{
+
                     this.setState({"city":json.results[3].address_components[0].long_name,
                                     "state": json.results[3].address_components[2].short_name})
-                })
+                }).catch((err)=>console.log(err.message))
                 this.props.handleLocationChange(position)
                 
                 this.setState({"location": ""})
