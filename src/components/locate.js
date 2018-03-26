@@ -9,7 +9,7 @@ class Locate extends Component{
             location:"",
             lat: "",
             lon: "",
-            city: "",
+
             weather_recieved: "hidden",
         }
         this.handleKeyDown.bind(this)
@@ -38,7 +38,7 @@ class Locate extends Component{
                                 "lon":position.coords.longitude
                 })
                 let googleApiUrl = "/api/locate/city/"+process.env.REACT_APP_API_KEY+"/"+position.coords.latitude + "/"+position.coords.longitude
-
+                console.log(googleApiUrl)
                 fetch(googleApiUrl)
                 .then((response)=>response.json())
                 .then((json)=>{
