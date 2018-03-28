@@ -9,7 +9,7 @@ class Locate extends Component{
             location:"",
             lat: "",
             lon: "",
-
+            found: "",
             weather_recieved: "hidden",
         }
         this.handleKeyDown.bind(this)
@@ -44,7 +44,10 @@ class Locate extends Component{
                 .then((json)=>{
 
                     this.setState({"city":json.results[3].address_components[0].long_name,
-                                    "state": json.results[3].address_components[2].short_name})
+                                    "state": json.results[3].address_components[2].short_name,
+                                    "found": "active",
+                                })
+                                  
                 }).catch((err)=>console.log(err.message))
                 this.props.handleLocationChange(position)
                 
@@ -67,9 +70,9 @@ class Locate extends Component{
                         
                         </a>
                             <div className="input-field">
-                                <input id="city"  type="text" className="" placeholder={this.state.city}>
+                                <input id="city"  type="text" className="" value={this.state.city}>
                                 </input>
-                                <label htmlFor="city">City</label>
+                                <label htmlFor="city" className={this.state.found}>City</label>
                                 
                             </div>
                             

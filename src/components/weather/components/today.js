@@ -22,12 +22,13 @@ class Today extends Component{
 
         return(
             <div className="today">
+
+                <div className="temp">
+                    {this.props.temp}º
+                </div>
+
                 <div className="icn-container">
                     {create_icon()}
-                </div>
-                
-                <div className="temp">
-                    {this.props.temp}
                 </div>
                 <div className="desc">
                     {this.props.desc}

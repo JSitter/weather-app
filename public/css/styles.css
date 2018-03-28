@@ -151,15 +151,24 @@ a.btn-find{
 }
 .today{
     width: 256px;
-    height: 400px;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgba(0, 0, 0, .5);
     border-radius: 30px;
+    font-size: 50px;
+    padding-top: 30px;
+    padding-bottom: 30px;
 }
 
 i{
     background-repeat: no-repeat;
 }
+
+.desc{
+    font-size: 20px;
+}
+
+
