@@ -49,7 +49,6 @@ class Locate extends Component{
                                 })
                                   
                 }).catch((err)=>console.log(err.message))
-                this.props.handleLocationChange(position)
                 
                 this.setState({"location": ""})
                 
@@ -70,7 +69,7 @@ class Locate extends Component{
                         
                         </a>
                             <div className="input-field">
-                                <input id="city"  type="text" className="" value={this.state.city}>
+                                <input id="city"  type="text" className="" value={this.state.city} onChange={this.changeLocation}>
                                 </input>
                                 <label htmlFor="city" className={this.state.found}>City</label>
                                 

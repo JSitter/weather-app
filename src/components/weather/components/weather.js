@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import GeoLocation from './geolocation'
 import Radar from './radar'
 import Today from './today'
+import Precipitation from './precipitation';
 
 class Weather extends Component{
     constructor(props){
@@ -17,13 +18,14 @@ class Weather extends Component{
 
         return(
             <section className={this.props.weather_tag}>
-                {console.log(this.props.icon)}
-
-
+              
                 <Today 
                     icon={this.props.icon}
                     temp={this.props.temp}
                     desc={this.props.desc}
+                />
+                <Precipitation
+                    precipitation={this.props.precipitation}
                 />
 
 

@@ -21,7 +21,7 @@ class Today extends Component{
         }
 
         return(
-            <div className="today">
+            <div className="today weather-box">
 
                 <div className="temp">
                     {this.props.temp}º

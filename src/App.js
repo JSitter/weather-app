@@ -11,7 +11,7 @@ class App extends Component {
       response: 'easy',
       weather_tag: 'hidden',
     };
-    this.handleLocationChange.bind(this)
+
   };
 
   
@@ -36,9 +36,7 @@ class App extends Component {
 
     return body;
   };
-  handleLocationChange = (location)=>{
-      console.log(location)
-  }
+
   getWeather = (state, city) =>{
 
 
@@ -51,7 +49,7 @@ class App extends Component {
 
       this.setState({
         "weather_tag":"weather-box visible",
-        "main_location":"weather-box hidden",
+        "main_location":"weather-data hidden",
         "icon":icon,
         "desc":weather,
         "temp":temp
@@ -62,13 +60,14 @@ class App extends Component {
 
   render() {
     let getWeatherComponent = ()=>{
-      if(this.state.weather_tag == "weather-box visible"){
+      if(this.state.weather_tag == "weather-data visible"){
         return (
           <Weather 
             weather_tag={this.state.weather_tag}
             icon={this.state.icon}
             temp={this.state.temp}
             desc={this.state.desc}
+            precipitation="Banana"
 
           /> 
         )
@@ -79,7 +78,6 @@ class App extends Component {
       <div className="App">
         <Header 
           visibility={this.state.main_location}
-          handleLocationChange={this.handleLocationChange} 
           getWeather={this.getWeather}
         />
         {getWeatherComponent()}

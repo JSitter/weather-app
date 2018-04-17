@@ -150,6 +150,18 @@ a.btn-find{
     opacity:1;
 }
 .today{
+
+}
+
+i{
+    background-repeat: no-repeat;
+}
+
+.desc{
+    font-size: 20px;
+}
+
+.weather-box{
     width: 256px;
     height: auto;
     display: flex;
@@ -163,12 +175,11 @@ a.btn-find{
     padding-bottom: 30px;
 }
 
-i{
-    background-repeat: no-repeat;
+.header{
+    display: flex;
+    justify-content: center;
 }
 
-.desc{
-    font-size: 20px;
+.weather-data{
+    width: 100%;
 }
-
-
