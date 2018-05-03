@@ -3,7 +3,6 @@ import Header from './components/header'
 import Weather from './components/weather'
 import './App.css';
 
-
 class App extends Component {
   constructor(props){
     super(props)
@@ -14,22 +13,8 @@ class App extends Component {
 
   };
 
-  
-
-  // componentDidMount() {
-  //   this.callApi()
-  //     .then(res => this.setState({"response": res}))
-  //     .catch(err => console.log(err));
-  // }
-
-  // callApi = ()=>{
-
-  //   fetch('/api/spark').then((res)=>{
-  //     this.setState({"response": res})
-  //   })
-  // }
   callApi = async () => {
-    const response = await fetch('/api/radar/'+process.env.REACT_APP_API_KEY);
+    const response = await fetch(process.env.REACT_APP_BACKEND_HOST +'/api/radar/'+process.env.REACT_APP_API_KEY);
     const body = await response.text();
 
     if (response.status !== 200) throw Error(body.message);
@@ -38,11 +23,12 @@ class App extends Component {
   };
 
   getWeather = (state, city) =>{
-
-
+    
     // let address = "/api/get/current/"+ process.env.REACT_APP_API_KEY 
-    let address = "/api/get/current/" + process.env.REACT_APP_API_KEY +"/"+ state + "/" + city
+    let address = process.env.REACT_APP_BACKEND_HOST + "/api/get/current/" + process.env.REACT_APP_API_KEY +"/"+ state + "/" + city
+    console.log(address)
     fetch(address).then((response)=>response.json()).then((json)=>{
+      console.log(json)
       let icon = json.current_observation.icon
       let weather = json.current_observation.weather
       let temp = json.current_observation.temp_f

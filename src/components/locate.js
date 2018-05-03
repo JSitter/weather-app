@@ -32,12 +32,13 @@ class Locate extends Component{
         }
     
         let fetchLocation=()=>{
-
+            // console.log(process.env)
             navigator.geolocation.getCurrentPosition((position)=>{
                 this.setState({ "lat": position.coords.latitude,
                                 "lon":position.coords.longitude
                 })
-                let googleApiUrl = "/api/locate/city/"+process.env.REACT_APP_API_KEY+"/"+position.coords.latitude + "/"+position.coords.longitude
+                let googleApiUrl = process.env.REACT_APP_BACKEND_HOST+"/api/locate/city/"+process.env.REACT_APP_API_KEY+"/"+position.coords.latitude + "/"+position.coords.longitude
+                
                 console.log(googleApiUrl)
                 fetch(googleApiUrl)
                 .then((response)=>response.json())
