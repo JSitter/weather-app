@@ -162,6 +162,7 @@ i{
 }
 
 .weather-box{
+    align-self: center;
     width: 256px;
     height: auto;
     display: flex;
@@ -182,4 +183,14 @@ i{
 
 .weather-data{
     width: 100%;
+}
+
+.weather-section{
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px 0px 0px 0px;
 }

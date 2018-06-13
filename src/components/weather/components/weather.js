@@ -17,7 +17,7 @@ class Weather extends Component{
     render(){
 
         return(
-            <section className={this.props.weather_tag}>
+            <section className="weather-section">
               
                 <Today 
                     icon={this.props.icon}
