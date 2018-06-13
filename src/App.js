@@ -7,6 +7,7 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state =  {
+      "isHidden" : true,
       response: 'easy',
       weather_tag: 'hidden',
     };
@@ -34,6 +35,7 @@ class App extends Component {
       let temp = json.current_observation.temp_f
 
       this.setState({
+        "isHidden" : false,
         "weather_tag":"weather-box visible",
         "main_location":"weather-data hidden",
         "icon":icon,
@@ -45,28 +47,35 @@ class App extends Component {
   }
 
   render() {
-    let getWeatherComponent = ()=>{
-      if(this.state.weather_tag == "weather-data visible"){
-        return (
-          <Weather 
+    // let getWeatherComponent = ()=>{
+    //   if(this.state.weather_tag == "weather-data visible"){
+    //     return (
+          {/* <Weather 
             weather_tag={this.state.weather_tag}
             icon={this.state.icon}
             temp={this.state.temp}
             desc={this.state.desc}
             precipitation="Banana"
 
-          /> 
-        )
-      }
-      else return
-    }
+          />  */}
+    //     )
+    //   }
+    //   else return
+    // }
     return (
       <div className="App">
         <Header 
           visibility={this.state.main_location}
           getWeather={this.getWeather}
         />
-        {getWeatherComponent()}
+        {!this.state.isHidden && <Weather 
+            weather_tag={this.state.weather_tag}
+            icon={this.state.icon}
+            temp={this.state.temp}
+            desc={this.state.desc}
+            precipitation="Banana"
+
+          /> }
       </div>
     );
   }
