@@ -56,6 +56,7 @@ class App extends Component {
             icon={this.state.icon}
             temp={this.state.temp}
             desc={this.state.desc}
+            precip="{this.state.precip}"
 
           /> }
       </div>

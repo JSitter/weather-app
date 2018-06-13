@@ -149,9 +149,6 @@ a.btn-find{
     transition: opacity 500ms;
     opacity:1;
 }
-.today{
-
-}
 
 i{
     background-repeat: no-repeat;
@@ -174,6 +171,8 @@ i{
     font-size: 50px;
     padding-top: 30px;
     padding-bottom: 30px;
+    position: relative;
+    margin: 10px;
 }
 
 .header{

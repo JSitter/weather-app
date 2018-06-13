@@ -4,7 +4,7 @@ class Precipitation extends Component{
     render(){
         return(
             <div className="precipitation weather-box">
-                {this.props.precipitation}
+                {this.props.precip}
             </div>
         )
     }

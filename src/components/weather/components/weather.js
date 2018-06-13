@@ -24,9 +24,9 @@ class Weather extends Component{
                     temp={this.props.temp}
                     desc={this.props.desc}
                 />
-                {/* <Precipitation
-                    precipitation={this.props.precipitation}
-                /> */}
+                {<Precipitation
+                    precip={this.props.precip}
+                />}
 
 
 
