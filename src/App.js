@@ -9,7 +9,6 @@ class App extends Component {
     this.state =  {
       "isHidden" : true,
       response: 'easy',
-      weather_tag: 'hidden',
     };
 
   };
@@ -25,19 +24,16 @@ class App extends Component {
 
   getWeather = (state, city) =>{
     
-    // let address = "/api/get/current/"+ process.env.REACT_APP_API_KEY 
     let address = process.env.REACT_APP_BACKEND_HOST + "/api/get/current/" + process.env.REACT_APP_API_KEY +"/"+ state + "/" + city
-    console.log(address)
+    // console.log(address)
     fetch(address).then((response)=>response.json()).then((json)=>{
-      console.log(json)
+      // console.log(json)
       let icon = json.current_observation.icon
       let weather = json.current_observation.weather
       let temp = json.current_observation.temp_f
 
       this.setState({
         "isHidden" : false,
-        "weather_tag":"weather-box visible",
-        "main_location":"weather-data hidden",
         "icon":icon,
         "desc":weather,
         "temp":temp
@@ -47,33 +43,18 @@ class App extends Component {
   }
 
   render() {
-    // let getWeatherComponent = ()=>{
-    //   if(this.state.weather_tag == "weather-data visible"){
-    //     return (
-          {/* <Weather 
-            weather_tag={this.state.weather_tag}
-            icon={this.state.icon}
-            temp={this.state.temp}
-            desc={this.state.desc}
-            precipitation="Banana"
 
-          />  */}
-    //     )
-    //   }
-    //   else return
-    // }
     return (
       <div className="App">
-        <Header 
-          visibility={this.state.main_location}
+        {this.state.isHidden && <Header 
           getWeather={this.getWeather}
-        />
+        />}
+
         {!this.state.isHidden && <Weather 
             weather_tag={this.state.weather_tag}
             icon={this.state.icon}
             temp={this.state.temp}
             desc={this.state.desc}
-            precipitation="Banana"
 
           /> }
       </div>
