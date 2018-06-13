@@ -46,10 +46,11 @@ class App extends Component {
 
     return (
       <div className="App">
-        {this.state.isHidden && <Header 
+        
+        <Header 
+          isHidden={this.state.isHidden}
           getWeather={this.getWeather}
-        />}
-
+        />
         {!this.state.isHidden && <Weather 
             weather_tag={this.state.weather_tag}
             icon={this.state.icon}

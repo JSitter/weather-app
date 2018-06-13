@@ -7,7 +7,7 @@ class Header extends Component{
     render(){
         return(
             <header className="header">
-                <div className={this.props.visibility}>
+            { this.props.isHidden && <div>
                     <h1 className="App-title">Blooop</h1>
                     <Locate 
                         handleLocationChange={this.props.handleLocationChange}
@@ -16,7 +16,7 @@ class Header extends Component{
                     
                         
                         
-                </div>
+                </div>}
             </header>
         )
     }
