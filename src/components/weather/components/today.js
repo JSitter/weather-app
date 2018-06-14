@@ -30,6 +30,7 @@ class Today extends Component{
                 <div className="icn-container">
                     {create_icon()}
                 </div>
+                
                 <div className="desc">
                     {this.props.desc}
                 </div>

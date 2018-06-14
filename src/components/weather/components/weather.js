@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import GeoLocation from './geolocation'
-import Radar from './radar'
 import Today from './today'
 import Precipitation from './precipitation';
 import Wind from './wind'
@@ -15,7 +13,6 @@ class Weather extends Component{
         }
     }
 
-    
     render(){
 
         return(
@@ -29,14 +26,23 @@ class Weather extends Component{
                 <Precipitation
                     precip_today={this.props.precip_today}
                     precip_hr = {this.props.precip_hr}
+                    pressure_trend = {this.props.pressure_trend}
+                    pressure_mb = {this.props.pressure_mb}
                 />
                 
-                <Wind/>
-                <Radiation />
+                <Wind
+                    wind_direction = {this.props.wind_direction}
+                    wind_speed = {this.props.wind_speed}
+                    wind_direction = {this.props.wind_direction}
+                    wind_gust = {this.props.wind_gust}
+                />
 
+                <Radiation 
+                    uv = {this.props.uv}
+                    vis = {this.prop.vis}
+                    solar_rad = {this.props.solar_rad}
+                />
 
-
-                
             </section>            
         )
     }

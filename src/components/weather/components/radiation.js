@@ -4,7 +4,7 @@ class Radiation extends Component{
     render(){
         return (
             <div className="weather-box">
-                help
+                
             </div>
         )
     }
