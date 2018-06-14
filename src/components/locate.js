@@ -58,7 +58,7 @@ class Locate extends Component{
         }
 
         let handleGetWeather = ()=>{
-            console.log(this.state.state)
+            // console.log(this.state.state)
             this.props.getWeather( this.state.state, this.state.city)
         }
         return (

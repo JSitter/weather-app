@@ -24,9 +24,11 @@ class Weather extends Component{
                     temp={this.props.temp}
                     desc={this.props.desc}
                 />
-                {<Precipitation
-                    precip={this.props.precip}
-                />}
+                <Precipitation
+                    precip_today={this.props.precip_today}
+                    precip_hr = {this.props.precip_hr}
+                />
+                
 
 
 
