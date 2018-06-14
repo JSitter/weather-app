@@ -3,6 +3,8 @@ import GeoLocation from './geolocation'
 import Radar from './radar'
 import Today from './today'
 import Precipitation from './precipitation';
+import Wind from './wind'
+import Radiation from './radiation'
 
 class Weather extends Component{
     constructor(props){
@@ -29,6 +31,8 @@ class Weather extends Component{
                     precip_hr = {this.props.precip_hr}
                 />
                 
+                <Wind/>
+                <Radiation />
 
 
 
