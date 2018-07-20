@@ -30,7 +30,7 @@ class Weather extends Component{
                     pressure_mb = {this.props.pressure_mb}
                 />
                 
-                <Wind
+                {/* <Wind
                     wind_direction = {this.props.wind_direction}
                     wind_speed = {this.props.wind_speed}
                     wind_direction = {this.props.wind_direction}
@@ -39,9 +39,9 @@ class Weather extends Component{
 
                 <Radiation 
                     uv = {this.props.uv}
-                    vis = {this.prop.vis}
+                    vis = {this.props.vis}
                     solar_rad = {this.props.solar_rad}
-                />
+                /> */}
 
             </section>            
         )
